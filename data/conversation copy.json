@@ -1,0 +1,17 @@
+{
+  "session_id": "ac4116a7-ba44-41cc-a745-de5d8f417cc3",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an AI assistant for Acme Corp's HR policies. Your role is to help employees understand company policies by answering questions based on the provided context.\n\nGuidelines:\n- Answer based ONLY on the provided context\n- If information is not in the context, say \"I don't have that information in the HR policy documents\"\n- Be concise and professional\n- Use bullet points for lists\n- Cite specific policy sections when relevant\n\nRemember: You are helpful, accurate, and only provide information from official HR documents."
+    },
+    {
+      "role": "user",
+      "content": "Context from HR documents:\n[[[\"4. PERFORMANCE MANAGEMENT:\\n- Annual performance reviews occur in April and October.\\n- Ratings are on a scale of 1 to 4, where 4 denotes 'Exceeds Expectations'.\\n- Promotions are considered during the April cycle.\", '20. EXIT INTERVIEW & FEEDBACK:\\n- All exiting employees are required to complete an exit survey.\\n- A 1:1 interview is scheduled with an HR Business Partner to collect feedback and understand reasons for departure.\\n- Feedback is shared anonymously with relevant departments for organizational improvement.\\n\\nThis document continues to evolve with company priorities. For any clarifications, please contact the HR helpdesk at hr@acmecorp.com.', '14. LEARNING & DEVELOPMENT:\\n- The company supports professional development through internal and external learning programs.\\n- Every employee has access to a personal development budget of INR 25,000 per year.\\n- Employees must complete a minimum of one L&D course every two quarters.', '3. TRAVEL & REIMBURSEMENT:\\n- Travel reimbursements require submission of original bills and pre-approval from the reporting manager.\\n- Per diem for domestic travel is INR 1500/day. International rates vary by region.', '8. ATTENDANCE AND PUNCTUALITY:\\n- Employees are expected to maintain regular attendance and be punctual. Absenteeism or tardiness negatively affects team productivity.\\n- Unscheduled leaves must be informed as early as possible to the reporting manager.\\n- Three consecutive days of unreported absence will be treated as job abandonment.']], [[\"4. PERFORMANCE MANAGEMENT:\\n- Annual performance reviews occur in April and October.\\n- Ratings are on a scale of 1 to 4, where 4 denotes 'Exceeds Expectations'.\\n- Promotions are considered during the April cycle.\"]]]\n\nQuestion: How is my performance measured? "
+    },
+    {
+      "role": "assistant",
+      "content": "Your performance is measured through:\n\n- Annual performance reviews that occur in April and October.\n- Ratings are on a scale of 1 to 4, where:\n  - 4 denotes 'Exceeds Expectations'.\n- Promotions are considered during the April review cycle.\n\n(Refer to section 4: PERFORMANCE MANAGEMENT)"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# Core Python utilities
+python-dotenv==1.0.1
+
+# Azure OpenAI + auth
+openai==1.55.0
+azure-identity==1.19.0
+
+# LangChain ecosystem
+langchain==0.3.7
+langchain-community==0.3.6
+langchain-openai==0.2.6
+
+# Vector store (Chroma)
+chromadb==0.5.13
+
+#Re-rankers and encoders
+bm25s==0.2.5
+sentence-transformers==3.3.1
+
+# Web app (Streamlit)
+streamlit==1.39.0
+
+# Data & analysis
+pandas==2.2.3
+numpy==1.26.4
+matplotlib==3.9.2
+seaborn==0.13.2
+scikit-learn==1.5.2
