@@ -6,3 +6,6 @@ venv/
 notes/
 sessions/
 chroma_db/
+data/chroma_db/
+data/conversation*
+data/conversation.json
