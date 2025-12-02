@@ -1,5 +1,4 @@
 """
-analysis_utils.py
 Core analysis functions for employee attrition visualization
 """
 
@@ -91,6 +90,8 @@ COLUMN_INSIGHTS = {
     **Key Insight:** Low job satisfaction is the strongest predictor of attrition. 
     Employees in the "Bad" category show dramatically higher attrition rates compared to 
     those with "Average" or "Great" satisfaction.
+
+    Job satisfaction shows the strongest correlation with attrition (-0.39). Employees with low satisfaction (level 1) have a 49.18 percent attrition rate, while those with higher satisfaction levels have only 4-6 percent attrition
     
     **Recommendation:** Conduct immediate engagement surveys and one-on-ones with low 
     satisfaction employees to identify root causes.
@@ -99,6 +100,8 @@ COLUMN_INSIGHTS = {
     'OverTime': """
     **Key Insight:** Employees working overtime have significantly higher attrition rates. 
     This indicates workload imbalance and potential burnout.
+
+    Employees working overtime have a 22.25 percent attrition rate versus 13.56 percent for those without overtime. This represents a 64 percent increase in attrition risk
     
     **Recommendation:** Audit overtime distribution, implement mandatory rest periods, 
     and consider additional hiring in high-overtime departments.
@@ -116,6 +119,8 @@ COLUMN_INSIGHTS = {
     **Key Insight:** Poor work-life balance nearly doubles attrition risk. 
     This is a critical retention factor that compounds with overtime.
     
+    Poor work-life balance significantly increases attrition risk. Employees with the lowest balance rating show 24.12 percent attrition compared to 12.23 percent for those with the highest rating.
+    
     **Recommendation:** Introduce flexible work policies, review workload distribution, 
     and promote better time management practices.
     """,
@@ -132,6 +137,8 @@ COLUMN_INSIGHTS = {
     **Key Insight:** Some departments show higher attrition than others, pointing to 
     local factors like leadership, workload, or growth opportunities.
     
+    Marketing has the highest departmental attrition at 17.35%, followed by HR (16.67%) and Finance (16.61%). Attrition is fairly consistent across age groups (15-16%) and gender shows minimal difference (Female 16.23%, Male 16.07%).
+
     **Recommendation:** Investigate high-attrition departments for management issues, 
     resource constraints, or career development gaps.
     """,

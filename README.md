@@ -72,17 +72,17 @@ BAIN_CASE_STUDY/
 
 - **Frontend**: Streamlit
 - **Backend**: FastAPI
-- **AI/ML**: RAG architecture with vector embeddings
+- **AI/ML**: Hybrid RAG architecture with vector embeddings
 - **Vector Database**: ChromaDB
 - **Data Processing**: Python, Pandas
 - **Visualization**: Jupyter Notebooks, plotting libraries
 
 ## Prerequisites
 
-- Python 3.8 or higher
-- pip package manager
-- API keys for LLM services (OpenAI, Anthropic, etc.)
-- Minimum 4GB RAM recommended
+- Python 3.13 with pip
+- Jupyter extensions
+- LLM for chat completions
+- Embedding model for vector creation
 
 ## Installation
 
@@ -111,12 +111,18 @@ pip install -r requirements.txt
 ### 4. Configure Environment Variables
 Create a `.env` file in the root directory with the following variables:
 ```env
-# LLM API Keys
-OPENAI_API_KEY=your_openai_api_key_here
-ANTHROPIC_API_KEY=your_anthropic_api_key_here  # If using Claude
+#AZURE OPEN AI SECRETS
+AZURE_OPENAI_KEY='your_azure_open_ai_key'
+AZURE_OPENAI_ENDPOINT='your_azure_open_ai_endpoint'
+AZURE_OPENAI_DEPLOYMENT='your_deployment_model' or gpt-4o-mini
 
-# Other Configuration (if needed)
-CHROMA_DB_PATH=./data/chroma_db
+#AZURE EMBEDDING SECRETS
+AZURE_EMBEDDING_KEY='your_embedding_key'
+AZURE_EMBEDDING_ENDPOINT='your_embedding_endpoint'
+AZURE_EMBEDDING_DEPLOYMENT=text-embedding-3-small
+
+#YAML CONFIGURATION
+CONFIG_YAML_PATH=config.yaml
 ```
 
 ### 5. Update Configuration
@@ -137,7 +143,7 @@ The ChromaDB vector database will be automatically initialized in the `data/chro
 
 ## How to Run
 
-### Option 1: Run Complete Application (Recommended)
+### Run Complete Application (Recommended)
 ```bash
 # Start the main Streamlit application
 streamlit run app/app.py
@@ -146,28 +152,21 @@ This will launch the integrated application with both HR Assistant and Visualize
 
 Access the application at `http://localhost:8501`
 
-### Option 2: Run Components Separately
-
 #### Starting the FastAPI Backend (RAG Server)
+In another terminal 
+
 ```bash
 # From the project root directory
-cd rag_chatbot
-uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
+python rag_chatbot/src/main.py
 ```
 API will be available at `http://localhost:8000`
 
-#### Starting the HR Assistant
-```bash
-streamlit run app/app_assistant.py
-```
-Access at `http://localhost:8501`
 
-#### Running the HR Visualizer Dashboard
+#### Running the HR Visualizer Dashboard Notebook
 Open the Jupyter notebook:
 ```bash
 jupyter notebook notebooks/charts.ipynb
 ```
-Or run via Streamlit (if integrated in app.py)
 
 ## Usage
 
@@ -188,13 +187,12 @@ Or run via Streamlit (if integrated in app.py)
    - Satisfaction levels
 3. View interactive charts and insights
 4. Identify attrition patterns and risk factors
-5. Export reports as needed
 
 ## File Explanations
 
 ### Core Application Files
-- **app/app_assistant.py**: Contains the Streamlit interface for the HR chatbot assistant
-- **app/app.py**: Main application orchestrator and entry point
+- **app/app_assistant.py**: Contains the Streamlit interface only for the HR chatbot assistant
+- **app/app.py**: Main application orchestrator and entry point. Contains the Streamlit interface both Assistant and Visualizer
 
 ### Data Files
 - **data/employee_attrition.csv**: Historical employee data with attrition indicators and demographics
@@ -208,77 +206,24 @@ Or run via Streamlit (if integrated in app.py)
   - **utils/**: Helper functions for embeddings, retrieval, and LLM integration
 
 ### Analytics
-- **notebooks/analysis_utils.py**: Reusable functions for statistical analysis and data transformation
+- **notebooks/analysis_utils.py**: Reusable functions for statistical analysis and data transformation used with streamlit
 - **notebooks/charts.ipynb**: Interactive notebook for exploring attrition patterns and generating visualizations
 
 ### Configuration Files
-- **.env**: Stores sensitive API keys and credentials (never commit to version control)
+- **.env**: Stores sensitive API keys and credentials
 - **config.yaml**: Non-sensitive configuration parameters (database paths, model settings, chunk sizes, etc.)
-- **requirements.txt**: All Python package dependencies with version specifications
+- **requirements.txt**: All Python package dependencies with version specifications. Some are without versions for auto download of other compatible dependencies
 
 ### Document Folders
 - **supporting_docs/**: Place new HR documents here for embedding
 - **processed_docs/**: Archive of documents that have been successfully embedded
 
-## Troubleshooting
-
-### Common Issues
-
-**Issue**: ChromaDB initialization error
-```bash
-# Solution: Clear and reinitialize the database
-rm -rf data/chroma_db
-python rag_chatbot/src/document_processor.py
-```
-
-**Issue**: API key errors
-- Verify `.env` file exists in root directory
-- Check API keys are valid and not expired
-- Ensure no extra spaces or quotes around keys
-
-**Issue**: Port already in use
-```bash
-# Change the port number
-streamlit run app/app.py --server.port 8502
-```
-
-**Issue**: Missing dependencies
-```bash
-# Reinstall all requirements
-pip install -r requirements.txt --upgrade
-```
-
-## Contributing
-
-When adding new features or documents:
-1. Add new HR documents to `supporting_docs/`
-2. Run document processor to update embeddings
-3. Test queries against new documents
-4. Update this README if configuration changes
-
-## Security Notes
-
-- Never commit the `.env` file to version control
-- Keep API keys secure and rotate them regularly
-- Limit access to employee data according to privacy policies
-- Ensure compliance with GDPR/local data protection regulations
 
 ## Future Enhancements
 
-- Multi-language support for global employee base
-- Predictive attrition modeling using ML
-- Integration with HRIS systems
-- Mobile application for on-the-go access
-- Advanced analytics with drill-down capabilities
+- Improved models for better, accurate and faster responses
+- Implement Rerankers to ensure more relevant chunks are given more priority
+- Integrate LLM with HR Visualizer to get insights automatically instead of harcoded
+- Custom upload of attrition files
 
-## License
-
-[Specify your license here]
-
-## Contact
-
-For questions or support, contact: [Your contact information]
-
----
-
-*This project was developed as a case study solution for enterprise HR management challenges.*
+- You may reach out to me at rahul3a67@gmail.com for any issues/discussions. 
